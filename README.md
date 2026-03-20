@@ -1,63 +1,84 @@
-# Dice Betting Game
+# Dice Betting Game (Advanced)
 
-A simple command line dice betting game written in C.
+A command line dice betting game written in C with balance management, win streak mechanics and session statistics.
 
-The player starts with a balance and bets money on a number between 1 and 6.  
-A dice is rolled randomly and if the player guesses correctly, they win money. Otherwise, they lose their bet.
+The player bets on a number between 1 and 6. A dice is rolled randomly, and rewards depend on accuracy and current win streak.
 
 ## Features
 
 - Random dice rolling
-- Player betting system
-- Balance tracking
-- Input validation
-- Game loop until player quits or runs out of money
+- Player balance system
+- Minimum bet requirement
+- Win streak system with bonus rewards
+- Near-miss bonus mechanic
+- Maximum balance tracking
+- Session summary with statistics
+- Interactive CLI experience with delay effects
 
-## How It Works
+## Game Rules
 
-1. The player starts with a balance of $200
-2. The player chooses a number between 1 and 6
-3. The player enters a bet amount
-4. The program rolls a random dice
-5. If the guess is correct:
-   - Player wins 3x the bet
-6. If incorrect:
-   - Player loses the bet
-7. The balance is updated after each round
-8. The game continues until:
-   - Player chooses 0 (quit)
+- Choose a number between **1 and 6**
+- Place a bet (minimum $10)
+- If your number matches the dice:
+  - Win **3x your bet**
+- If you have a win streak of 2+:
+  - Win **5x your bet**
+- If you're close (±1) during a streak:
+  - Get a **1.5x bonus**
+- Otherwise:
+  - Lose your bet
+
+## Game Flow
+
+1. Set your starting balance (max $1000)
+2. Choose a number
+3. Enter your bet
+4. Dice rolls with delay
+5. Balance updates
+6. Game continues until:
+   - You quit (0)
    - Balance reaches 0
 
 ## Technologies
 
 - C programming language
 - Standard C libraries
-- `stdlib.h` for random numbers
-- `time.h` for random seed
+- `stdlib.h` for randomness
+- `time.h` for seeding
+- `unistd.h` for delay simulation
 
 ## What I Learned
 
-- Using functions to organize code
-- Random number generation with `rand()`
-- Input validation and loops
-- Managing player balance
-- Implementing game logic
-- Using return values to update state
+- Advanced function organization in C
+- Managing game state across multiple variables
+- Implementing reward systems and game logic
+- Tracking statistics (wins, streaks, percentages)
+- Input validation and control flow
+- Creating more dynamic CLI applications
 
 ## Example
 
 WELCOME TO DICE GAME!
 
-Player balance: $200.00
+Set your starting balance: $200
 
 Enter your chosen dice number: 3  
 Enter your bet amount: $50  
 
+Rolling the dice...  
 Dice rolled: 3  
 
-Congratulations! You won $150.00!  
+Congratulations! You won $150.00!
 
-Player balance: $350.00  
+Player balance: $350.00
+
+## Session Summary
+
+- Total rounds played
+- Total wins
+- Win percentage
+- Highest balance reached
+- Longest win streak
 
 ## Author
 
