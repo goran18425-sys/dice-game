@@ -33,6 +33,7 @@ int main()
 
     do
     {
+        
         int diceNum = randomNum();
 
         int playerChoice = getPlayerChoice();
@@ -63,14 +64,14 @@ int main()
         }
         
 
-    } while (playerBalance > 0);
+    } while (playerBalance >= 10);
 
 
     if (gamesPlayed > 0)
     {
-            if (playerBalance <= 0)
+            if (playerBalance < 10)
         {
-            printf("\nGame over. Your balance is $0. Better luck next time!\n");
+            printf("\nGame over. Your balance is $%.2f. You don't have enough funds to continue (minimum bet is $10). Better luck next time!\n", playerBalance);
         }
         else if(playerBalance < startingBalance)
         {
